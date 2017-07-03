@@ -1,0 +1,32 @@
+
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<div class="logo"></div>
+<div class="login-block">
+
+  <h2>Sign Up</h2>
+  <p>Sign up to this awesome app</p>
+
+  <% if (typeof messageForDumbUsers === "string") { %>
+    <p class="error-message"> <%= messageForDumbUsers%> </p>
+  <%}%>
+  <form id="form" action="/signup" method="post">
+    <label for="full-name-input"> Your Name</label>
+    <input type="text" name="signupFullName" id="full-name-input">
+    <!-- // placeholder is optional -->
+    <br>
+    <label for="username-input"> UserName</label>
+    <input type="text" name="signupUsername" id="username-input">
+    <br>
+    <label for="password-input"> Password </label>
+    <input type="password" name="signupPassword" id="password-input"
+    placeholder="***********">
+    <button> Sign Up </button>
+  </form>
+
+  <a href="/auth/facebook"> Log In with Facebook</a>
+  <br>
+
+  <a href="/auth/facebook"> Log In with Google</a>
+  <br>
+
+</div>
