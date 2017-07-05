@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="stylesheets/mylovedrecipes.css">
+<h2> My Loved Recipes </h2>
+<section class="recipe-view" id="recipes-page">
+<ul class='row-between'>
+
+    <li class='imageblock'>
+<div class="eachrecipepic">
+      <img src="<%= recipesAndStuff.photoUrl %>" >
+    </div>
+    <div class="recipedesc">
+      <p> <%= recipesAndStuff.recipename %> </p>
+      <p> <%= recipesAndStuff.recipesource %> </p>
+      <a href="/recipedetails/<%= oneRecipe._id %>">  View Recipe Details</a>
+    </div>
+    </li>
+
+</ul>
+</section>
+<div class="footer">
+  <button> Add New Recipe </button>
+  <button> Add New Recipe </button>

@@ -9,10 +9,10 @@ const myUserSchema = new Schema(
   encryptedPassword: {type: String},
 
   //for google users
-  googleId: {type:String},
+  googleID: {type:String},
 
   //for facebook users
-  facebookId: {type: String}
+  facebookID: {type: String}
 
 },
 {

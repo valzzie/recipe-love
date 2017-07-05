@@ -70,7 +70,7 @@ router.get('/login', (req,res,next) => {
 router.post('/login', passport.authenticate(
   'local', //ist arg: name of the Strategy determined by the strategy's npm package.
   {   //2nd arg: settings object
-    successRedirect: '/', //where to go if login works
+    successRedirect: '/recipes/new', //where to go if login works
     failureRedirect: '/login' //where to go if login fails
   }
 ));
@@ -89,7 +89,7 @@ router.get('/auth/facebook/callback',
 passport.authenticate(
   'facebook',
   {
-    successRedirect:'/decision',
+    successRedirect:'/add',
     failureRedirect: '/login'
   }
 )
@@ -105,7 +105,7 @@ router.get('/auth/google/callback',
 passport.authenticate(
   'google',
   {
-    successRedirect:'/special',
+    successRedirect:'/add',
     failureRedirect: '/login'
   }
 )

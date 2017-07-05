@@ -6,6 +6,8 @@ const cookieParser = require('cookie-parser');
 const bodyParser   = require('body-parser');
 const layouts      = require('express-ejs-layouts');
 const mongoose     = require('mongoose');
+//to log user into a session
+const session= require('express-session');
 const passport = require('passport');
 
 //import dotenv package an dload variables
@@ -21,7 +23,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'RecipeLove';
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -31,9 +33,46 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(layouts);
+app.use(session({
+  //value of secret doesn't matter but it should be diff for every app.
+  secret: 'dfdfdsf dfdfdf dfsdfdsfdf dfdfdsf dfdsfdf',
+  resave: true,
+  saveUninitialized: true
 
+})); // 2 weird parens: 1 for app.us and one for session
+
+//The 2 passport middlewares below must go after all of the session app.use's.  Required to login a user.
+app.use(passport.initialize());
+app.use(passport.session());
+//
+//passport middlewares below****************created this so we don't have to write in on everypage.
+//we are going to check for the presence of the logged in user.
+//if user is not logged in req.user will be empty.
+//below we are checking to see if the user IS logged in.
+//req.user is defined by the middleware
+app.use((req,res,next) => {
+if(req.user){
+  res.locals.currentUser=req.user;
+}
+//if don't put the next() my page will load forever (hang).
+next();
+});
+
+
+//Routes go below here*********
+//note that these first 2 lines were already here, i didn't create them
 const index = require('./routes/index');
 app.use('/', index);
+
+//first 2 lines I added
+const myAuthRoutes =require('./routes/user-route.js');
+app.use('/', myAuthRoutes);
+
+const myRecipeRoutes =require('./routes/lovedrecipe-route.js');
+app.use('/', myRecipeRoutes);
+
+//Routes go above here**********
+
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

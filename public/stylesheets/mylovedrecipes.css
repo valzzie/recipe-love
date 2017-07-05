@@ -1,0 +1,50 @@
+/**/
+h2{
+  font-family: 'Indie Flower', cursive;
+  font-size: 6vh;
+}
+.eachrecipepic img{
+  width: 100%;
+}
+.recipe-view{
+  margin-top: 65px;
+}
+#recipes-page{
+  height: 70vh;
+  ul{
+    width:100%;
+  }
+  li{
+    width:80%;
+    margin-left: 8%;
+    height: 70vh;
+  }
+}
+.rowspacing{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.imageblock{
+  width: 17%;
+  height:47vh;
+  border: 5px solid silver;
+  border-radius: 10px;
+  margin: 15px;
+  display: inline-block;
+  box-shadow: 7px 9px 33px -10px silver;
+}
+.eachrecipepic{
+  height: 70%;
+  width: 100%;
+  border-top-right-radius: 9px;
+  border-top-left-radius: 9px;
+}
+.recipedesc{
+  height: 30%;
+  width: 100%;
+  text-align: center;
+  color: grey;
+}
