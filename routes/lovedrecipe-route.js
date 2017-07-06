@@ -67,7 +67,8 @@ router.post(
 
         // If saved successfully, redirect to a URL.
         // (redirect is STEP #3 of form submission for a new product)
-        res.redirect('/recipes/'+ theRecipe._id);
+        // res.redirect('/recipes/'+ theRecipe._id);
+        res.redirect('/recipes/');
           // you can ONLY redirect to a URL 🌏
 
           // 🚨🚨🚨
@@ -75,6 +76,7 @@ router.post(
           // 🚨🚨🚨
     });
   });
+  // don't need this
   router.get('/recipes/:myId', (req,res,next) => {
     RecipeModel.findById(
       // find the rooms owned by the logged in user.   we want the current owner of the room

@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="stylesheets/addrecipe.css">
+
 
 <div class="login-block">
 <h2>Add a Loved Recipe</h2>
@@ -17,27 +17,72 @@
   <br>
 
   <!-- change type to file so it goes to public folder -->
-    <label for="photo-url"> Photo URL: </label>
-    <input  id="photo-url" type="file" name="photoUrl">
+    <label for="photo-url">
+        Photo URL:<br>
+        <span> Click Me </span>
+      </label>
+    <input id="photo-url" type="file" name="photoUrl">
     <br>
 
   <label for="recipe-category-input"> Recipe Category: </label>
-  <br>
-  <input  id="recipe-category-input" type="checkbox" name="recipecategory" value="Breakfast"> Breakfast <br>
-  <input  id="recipe-category-input" type="checkbox" name="recipecategory" value="Breakfast"> Lunch <br>
-  <input  id="recipe-category-input" type="checkbox" name="recipecategory" value="Breakfast"> Dinner <br>
-  <br>
+
+  <fieldset>
+  <input  id="recipe-category-input" type="checkbox" name="recipecategory" value="Breakfast">
+  <label> Breakfast </label>
+</fieldset>
+<fieldset>
+  <input  id="recipe-category-input" type="checkbox" name="recipecategory" value="Lunch">
+  <label> Lunch </label>
+</fieldset>
+<fieldset>
+  <input  id="recipe-category-input" type="checkbox" name="recipecategory" value="Dinner">
+  <label> Dinner </label>
+</fieldset>
 <!-- updated the name to  tags[] and type to checkbox -->
   <label for="recipe-tags-input"> Recipe Tags: </label>
   <br>
-  <input  id="recipe-tags-input" type="checkbox" name="tags[]" value="Healthy"> Healthy <br>
-  <input  id="recipe-tags-input" type="checkbox" name="tags[]" value="Vegetarian"> Vegetarian <br>
-  <input  id="recipe-tags-input" type="checkbox" name="tags[]" value="Seafood"> Seafood <br>
-  <input  id="recipe-tags-input" type="checkbox" name="tags[]" value="Poultry"> Poultry <br>
-  <input  id="recipe-tags-input" type="checkbox" name="tags[]" value="Red Meat"> Red Meat <br>
-  <input  id="recipe-tags-input" type="checkbox" name="tags[]" value="Veggies"> Veggies <br>
-  <input  id="recipe-tags-input" type="checkbox" name="tags[]" value="Company"> Company <br>
-  <input  id="recipe-tags-input" type="checkbox" name="tags[]" value="Quick"> Quick <br>
+
+  <fieldset>
+    <input  id="recipe-tags-input" type="checkbox" name="tags[]" value="Healthy">
+    <label> Healthy </label>
+  </fieldset>
+
+  <!-- <label class='inline' for="recipe-tags-input"> <p> Vegetarian</p> </label> -->
+  <fieldset>
+    <input  id="recipe-tags-input" type="checkbox" name="tags[]" value="Vegetarian">
+    <label> Vegetarian </label>
+  </fieldset>
+
+  <fieldset>
+    <input  id="recipe-tags-input" type="checkbox" name="tags[]" value="Seafood">
+    <label> Seafood </label>
+  </fieldset>
+
+  <fieldset>
+    <input  id="recipe-tags-input" type="checkbox" name="tags[]" value="Poultry">
+    <label> Poultry </label>
+  </fieldset>
+
+  <fieldset>
+    <input  id="recipe-tags-input" type="checkbox" name="tags[]" value="Red Meat">
+    <label> Red Meat </label>
+  </fieldset>
+
+  <fieldset>
+    <input  id="recipe-tags-input" type="checkbox" name="tags[]" value="Veggies">
+    <label> Veggies </label>
+  </fieldset>
+
+  <fieldset>
+    <input  id="recipe-tags-input" type="checkbox" name="tags[]" value="Company">
+    <label> Company </label>
+  </fieldset>
+
+  <fieldset>
+    <input  id="recipe-tags-input" type="checkbox" name="tags[]" value="Quick">
+    <label> Quick </label>
+  </fieldset>
+
   <!-- <input type="checkbox" name="vehicle" value="Bike"> I have a bike<br> -->
   <br>
 
@@ -49,3 +94,4 @@
 
   <button> Save This Recipe </button>
 </form>
+</div>

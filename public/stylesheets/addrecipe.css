@@ -2,13 +2,14 @@
 /*addlovedrecipe page aka: recipes/new */
 
 body {
-    background: url('../images/pexels-photo-349610.jpeg');
+  background-color:lavender;
+    /*background: url('../images/pexels-photo-268328.jpeg');*/
     background-size: cover;
     font-family: Montserrat;
 }
 
 .login-block {
-    width: 320px;
+    width: 455px;
     padding: 20px;
     background: #fff;
     border-radius: 15px;
@@ -16,6 +17,7 @@ body {
     margin: 0 auto;
     padding-top: 4vh;
     margin-top:15vh;
+    vertical-align: middle;
 }
 
 .login-block h2 {
@@ -36,7 +38,9 @@ label {
     font-family: 'Indie Flower', cursive;
     font-size: 3vh;
 }
-
+.inline p{
+  display: inline-block;
+}
 .login-block input {
     width: 100%;
     height: 42px;
@@ -49,7 +53,24 @@ label {
     padding: 0 20px 0 50px;
     outline: none;
 }
-
+fieldset {
+  margin-bottom: 0px;
+}
+fieldset label {
+  vertical-align: middle;
+  line-height: 42px;
+  margin-bottom: 0;
+  margin-left: 10px;
+}
+.login-block input[type="checkbox"] {
+  width: auto;
+  vertical-align: middle;
+  margin-bottom: 0;
+}
+#photo-url{
+margin-left: 1000px;
+height:0px;
+}
 
 .login-block button {
     width: 100%;
@@ -65,4 +86,24 @@ label {
     font-family: Montserrat;
     outline: none;
     cursor: pointer;
+}
+.login-block span{
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  background: lightgrey;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid white;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-family: 'Indie Flower', cursive;
+  outline: none;
+  cursor: pointer;
+}
+textarea{
+  width: 25vw;
+    height: 13vh;
 }

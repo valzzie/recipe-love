@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="stylesheets/mylovedrecipes.css">
+
 
 <body>
 	<div id="wrapper">
@@ -10,7 +10,7 @@
 <% recipesAndStuff.forEach((oneRecipe) => { %>
     <li class='imageblock'>
 <div class="eachrecipepic">
-      <img src="<%= oneRecipe.photoUrl %>" >
+      <img id = "eachImg" src="<%= oneRecipe.photoUrl %>">
     </div>
     <div class="recipedesc">
       <p> <%= oneRecipe.recipename %> </p>
@@ -23,10 +23,8 @@
 </section>
 </div>
 </div>
-
-  <div id="footer">
-    <!-- <button> Add New Recipe </button> -->
-    <a href="/recipes/new" class="addrecipebutton"> Add New Recipe </a>
-  </div>
-
   </body>
+	<span >
+		<!-- <button> Add New Recipe </button> -->
+		<a id="addbutton" href="/recipes/new" class="addrecipebutton"> Add New Recipe </a>
+	</span>
