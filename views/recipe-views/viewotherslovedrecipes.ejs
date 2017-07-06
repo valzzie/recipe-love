@@ -1,0 +1,38 @@
+
+
+<body>
+	<div id="wrapper">
+
+		<div id="content">
+<h2> Recipe Details </h2>
+<section class="recipe-view" id="recipes-page">
+<ul class='row-between'>
+    <li class='imageblock'>
+<div class="eachrecipepic">
+      <img id = "eachImg" src="<%= oneRecipe.photoUrl %>">
+    </div>
+    <div class="recipedesc">
+      <p> <%= recipesAndStuff.recipename %> </p>
+      <p> <%= recipesAndStuff.recipesource %> </p>
+      <p> <%= recipesAndStuff.sourcelink %> </p>
+      <p> <%= recipesAndStuff.recipecategory %> </p>
+      <p> <%= recipesAndStuff.recipecomment %> </p>
+      <p> <%= recipesAndStuff.recipetags %> </p>
+      <p> <%= recipesAndStuff.photoUrl %> </p>
+    </div>
+    </li>
+<% }) %>
+</ul>
+</section>
+</div>
+</div>
+  </body>
+
+
+		<span >
+			<!-- <button> Add New Recipe </button> -->
+			<a id="addbutton" href="/recipes/new" class="addrecipebutton"> Add New Recipe </a>
+			<a id="editbutton" href="/recipes/:myId/edit" class="editrecipebutton"> Edit My Recipe </a>
+			<a id="deletebutton" href="/recipes/:myId/delete" class="deleterecipebutton"> Delete My Recipe </a>
+
+		</span>

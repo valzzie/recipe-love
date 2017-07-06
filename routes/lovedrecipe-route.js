@@ -9,6 +9,8 @@ const myUploader = multer({
   //dest is the destination that specifies where to put the uploaded files
   dest: __dirname + '/../public/uploads/'
 });
+
+console.log("ERGHERKGHERUGHERHFERFHERHFERGHEUFHERUGHERKUGHEURHGERGHREG");
 router.get('/recipes', (req, res, next) => {
   RecipeModel.find((err, recipeResults) => {
     if (err) {
@@ -45,18 +47,38 @@ router.post(
   (req,res,next) => {
     console.log('***********************************************************');
     console.log('req.file(file upload from multer)');
-    const theRecipe = new RecipeModel({
-      recipename: req.body.recipename,
-      recipesource: req.body.recipesource,
-      sourcelink: req.body.sourcelink,
-      photoUrl: '/uploads/'+ req.file.filename,
-      recipecategory: req.body.recipecategory,
-      recipecomment: req.body.recipecomment,
-      // updated this to tags to match the form
-      recipetags: req.body.tags,
-      //owner of the recipes
-      owner: req.user._id
-    });
+let theRecipe;
+    if (typeof req.file != "undefined"){
+console.log("BEFORE THE ELSE!!!!!!!!!!!!!!!!!");
+           theRecipe = new RecipeModel({
+            recipename: req.body.recipename,
+            recipesource: req.body.recipesource,
+            sourcelink: req.body.sourcelink,
+            photoUrl: '/uploads/'+ req.file.filename,
+            recipecategory: req.body.recipecategory,
+            recipecomment: req.body.recipecomment,
+            // updated this to tags to match the form
+            recipetags: req.body.tags,
+            //owner of the recipes
+            owner: req.user._id
+          });
+
+    } else {
+console.log("AFTER THE ELSE!!!!!!!!!!!!!!!!!");
+          theRecipe = new RecipeModel({
+            recipename: req.body.recipename,
+            recipesource: req.body.recipesource,
+            sourcelink: req.body.sourcelink,
+            photoUrl: "/images/damien-creatz-161787.jpg",
+            recipecategory: req.body.recipecategory,
+            recipecomment: req.body.recipecomment,
+            // updated this to tags to match the form
+            recipetags: req.body.tags,
+            //owner of the recipes
+            owner: req.user._id
+          });
+    }
+
 
     theRecipe.save((err) => {
         if (err) {
