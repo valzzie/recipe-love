@@ -76,7 +76,7 @@ router.post(
           // 🚨🚨🚨
     });
   });
-  // don't need this
+  // don't need this unless I get to product details page
   router.get('/recipes/:myId', (req,res,next) => {
     RecipeModel.findById(
       // find the rooms owned by the logged in user.   we want the current owner of the room
@@ -93,5 +93,76 @@ router.post(
   }
   );
   });
+  // STEP #1 of form submission for UPDATING a product
+  router.get('/recipes/:myId/edit', (req, res, next) => {
+  //    /products/595174b1e7890a86da4f5f0b/edit
+  //                       |
+  //                 req.params.myId
 
+      RecipeModel.findById(
+        req.params.myId,           // 1st argument -> the id to find in the DB
+        (err, recipeFromDb) => {  // 2nd argument -> callback
+            if (err) {
+              // use next() to skip to the ERROR PAGE
+              next(err);
+              return;
+            }
+
+            res.locals.recipeDetails = recipeFromDb;
+
+            res.render('recipe-views/editlovedrecipe-view.ejs');
+
+            // Other way of transfering variables to the view:
+            //
+            // res.render('product-views/edit-product-view.ejs', {
+            //   productDetails: productFromDb
+            // });
+        }
+      );
+  });
+
+  // STEP #2 of form submission for UPDATING a product
+  // <form method="post" action="/products/283u8eu239eu23e/update">
+  //                |                             |
+  //      -----------      ------------------------
+  //      |                |
+  router.post('/recipes/:myId/update', (req, res, next) => {
+  //    /products/283u8eu239eu23e/update
+  //                     |
+  //              req.params.myId
+
+      RecipeModel.findByIdAndUpdate(
+        req.params.myId,            // 1st argument -> id of document to update
+
+        {                           // 2nd argument -> object of fields to update
+          recipename: req.body.recipename,
+          recipesource: req.body.recipesource,
+          sourcelink: req.body.sourcelink,
+          photoUrl: '/uploads/'+ req.file.filename,
+          recipecategory: req.body.recipecategory,
+          recipecomment: req.body.recipecomment,
+          // updated this to tags to match the form
+          recipetags: req.body.tags,
+          //owner of the recipes
+          owner: req.user._id
+        },
+
+        (err, recipeFromDb) => {  // 3rd argument -> callback!
+          if (err) {
+            // use next() to skip to the ERROR PAGE
+            next(err);
+            return;
+          }
+
+          // If saved successfully, redirect to a URL.
+          // (redirect is STEP #3 of form submission for a new product)
+          res.redirect('/recipes/' + recipeFromDb._id);
+            // you can ONLY redirect to a URL 🌏
+
+            // 🚨🚨🚨
+            // If you don't redirect, you can refresh and duplicate your data!
+            // 🚨🚨🚨
+        }
+      );
+  });
   module.exports= router;

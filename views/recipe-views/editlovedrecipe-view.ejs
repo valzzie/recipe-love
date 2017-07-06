@@ -1,1 +1,96 @@
-<h2> Edit your Recipe </h2>
+
+<div class="login-block">
+<h2>Edit My Recipe</h2>
+<!-- add enctype to upload photos -->
+<form method="post" action="/recipes" enctype="multipart/form-data" >
+  <label for="recipe-name-input"> Recipe Name: </label>
+  <input  id="recipe-name-input" type="text" name="recipename">
+  <br>
+
+  <label for="recipe-source-input"> Recipe Source: </label>
+  <input  id="recipe-source-input" type="text" name="recipesource">
+  <br>
+
+  <label for="source-link-input"> Recipe Source Link: </label>
+  <input  id="source-link-input" type="text" name="sourcelink">
+  <br>
+
+  <!-- change type to file so it goes to public folder -->
+    <label for="photo-url">
+        Photo URL:<br>
+        <span> Click Me </span>
+      </label>
+    <input id="photo-url" type="file" name="photoUrl">
+    <br>
+
+  <label for="recipe-category-input"> Recipe Category: </label>
+
+  <fieldset>
+  <input  id="recipe-category-input" type="checkbox" name="recipecategory" value="Breakfast">
+  <label> Breakfast </label>
+</fieldset>
+<fieldset>
+  <input  id="recipe-category-input" type="checkbox" name="recipecategory" value="Lunch">
+  <label> Lunch </label>
+</fieldset>
+<fieldset>
+  <input  id="recipe-category-input" type="checkbox" name="recipecategory" value="Dinner">
+  <label> Dinner </label>
+</fieldset>
+<!-- updated the name to  tags[] and type to checkbox -->
+  <label for="recipe-tags-input"> Recipe Tags: </label>
+  <br>
+
+  <fieldset>
+    <input  id="recipe-tags-input" type="checkbox" name="tags[]" value="Healthy">
+    <label> Healthy </label>
+  </fieldset>
+
+  <!-- <label class='inline' for="recipe-tags-input"> <p> Vegetarian</p> </label> -->
+  <fieldset>
+    <input  id="recipe-tags-input" type="checkbox" name="tags[]" value="Vegetarian">
+    <label> Vegetarian </label>
+  </fieldset>
+
+  <fieldset>
+    <input  id="recipe-tags-input" type="checkbox" name="tags[]" value="Seafood">
+    <label> Seafood </label>
+  </fieldset>
+
+  <fieldset>
+    <input  id="recipe-tags-input" type="checkbox" name="tags[]" value="Poultry">
+    <label> Poultry </label>
+  </fieldset>
+
+  <fieldset>
+    <input  id="recipe-tags-input" type="checkbox" name="tags[]" value="Red Meat">
+    <label> Red Meat </label>
+  </fieldset>
+
+  <fieldset>
+    <input  id="recipe-tags-input" type="checkbox" name="tags[]" value="Veggies">
+    <label> Veggies </label>
+  </fieldset>
+
+  <fieldset>
+    <input  id="recipe-tags-input" type="checkbox" name="tags[]" value="Company">
+    <label> Company </label>
+  </fieldset>
+
+  <fieldset>
+    <input  id="recipe-tags-input" type="checkbox" name="tags[]" value="Quick">
+    <label> Quick </label>
+  </fieldset>
+
+  <!-- <input type="checkbox" name="vehicle" value="Bike"> I have a bike<br> -->
+  <br>
+
+  <label for="recipe-comment-input"> Recipe Comment: </label>
+  <!-- //use textarea for text area -->
+  <br>
+  <textarea  id="recipe-comment-input"  name="recipecomment"></textarea>
+  <br>
+
+  <button> Save This Recipe </button>
+</form>
+</div>
