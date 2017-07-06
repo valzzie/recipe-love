@@ -1,7 +1,13 @@
 /**/
+body {
+  display: flex;
+ min-height: 100vh;
+ flex-direction: column;
+}
 h2{
   font-family: 'Indie Flower', cursive;
   font-size: 6vh;
+  text-align: center;
 }
 .eachrecipepic img{
   width: 100%;
@@ -20,6 +26,9 @@ h2{
     height: 70vh;
   }
 }
+.row-between{
+  margin-left: 144px;
+}
 .rowspacing{
   display:flex;
   flex-direction: row;
@@ -28,9 +37,9 @@ h2{
   justify-content: space-between;
 }
 .imageblock{
-  width: 17%;
+  width: 25%;
   height:47vh;
-  border: 5px solid silver;
+  border: 5px solid lightpink;
   border-radius: 10px;
   margin: 15px;
   display: inline-block;
@@ -47,4 +56,31 @@ h2{
   width: 100%;
   text-align: center;
   color: grey;
+  margin-top: 14px;
+}
+#footer{
+  /*position: absolute;*/
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+  /*below is temp fix for location of add button*/
+  margin-top: 500px;
+}
+#wrapper{
+  flex: 1;
+  /*min-height: 100%;
+  margin-bottom: -142px;*/
+}
+#wrapper:after {
+  /*content: "";
+  display: block;*/
+}
+.sitefooter, .page-wrap:after {
+  /*height: 142px; */
+}
+.site-footer {
+  background: orange;
 }

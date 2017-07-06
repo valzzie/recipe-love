@@ -6,7 +6,7 @@ const router= express.Router();
 const multer= require('multer');
 // to save user uploaded files in a specific folder
 const myUploader = multer({
-  //dest is the detination that specifies where to put the uploaded files
+  //dest is the destination that specifies where to put the uploaded files
   dest: __dirname + '/../public/uploads/'
 });
 router.get('/recipes', (req, res, next) => {
@@ -52,7 +52,8 @@ router.post(
       photoUrl: '/uploads/'+ req.file.filename,
       recipecategory: req.body.recipecategory,
       recipecomment: req.body.recipecomment,
-      recipetags: req.body.recipetags,
+      // updated this to tags to match the form
+      recipetags: req.body.tags,
       //owner of the recipes
       owner: req.user._id
     });

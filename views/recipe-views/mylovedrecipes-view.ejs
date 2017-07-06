@@ -1,21 +1,32 @@
 <link rel="stylesheet" href="stylesheets/mylovedrecipes.css">
+
+<body>
+	<div id="wrapper">
+
+		<div id="content">
 <h2> My Loved Recipes </h2>
 <section class="recipe-view" id="recipes-page">
 <ul class='row-between'>
-
+<% recipesAndStuff.forEach((oneRecipe) => { %>
     <li class='imageblock'>
 <div class="eachrecipepic">
-      <img src="<%= recipesAndStuff.photoUrl %>" >
+      <img src="<%= oneRecipe.photoUrl %>" >
     </div>
     <div class="recipedesc">
-      <p> <%= recipesAndStuff.recipename %> </p>
-      <p> <%= recipesAndStuff.recipesource %> </p>
-      <a href="/recipedetails/<%= oneRecipe._id %>">  View Recipe Details</a>
+      <p> <%= oneRecipe.recipename %> </p>
+      <p> <%= oneRecipe.recipesource %> </p>
+      <!-- <a href="/recipedetails/<%= recipesAndStuff._id %>">  View Recipe Details</a> -->
     </div>
     </li>
-
+<% }) %>
 </ul>
 </section>
-<div class="footer">
-  <button> Add New Recipe </button>
-  <button> Add New Recipe </button>
+</div>
+</div>
+
+  <div id="footer">
+    <!-- <button> Add New Recipe </button> -->
+    <a href="/recipes/new" class="addrecipebutton"> Add New Recipe </a>
+  </div>
+
+  </body>
