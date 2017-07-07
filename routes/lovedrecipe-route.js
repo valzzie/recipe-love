@@ -113,20 +113,24 @@ let theRecipe;
   }
   );
   });
+
   // STEP #1 of form submission for UPDATING a product
   router.get('/recipes/:myId/edit', (req, res, next) => {
   //    /products/595174b1e7890a86da4f5f0b/edit
   //                       |
   //                 req.params.myId
-
+      console.log('1');
       RecipeModel.findById(
         req.params.myId,           // 1st argument -> the id to find in the DB
         (err, recipeFromDb) => {  // 2nd argument -> callback
             if (err) {
+              console.log('2');
               // use next() to skip to the ERROR PAGE
               next(err);
               return;
             }
+            console.log('3');
+            console.log(recipeFromDb);
 
             res.locals.recipeDetails = recipeFromDb;
 
