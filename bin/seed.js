@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
                                     // database name
-                                    //    |
-mongoose.connect('mongodb://localhost/recipelove');
+require('dotenv').config();                                    //    |
+mongoose.connect(process.env.MONGODB_URI);
                                //         |
                                // use ironshop
 
