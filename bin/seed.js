@@ -1,3 +1,15 @@
+const mongoose = require('mongoose');
+                                    // database name
+                                    //    |
+mongoose.connect('mongodb://localhost/recipelove');
+                               //         |
+                               // use ironshop
+
+// We have to connect the DB again here
+// because seed.js is SEPARATE from app.js.
+
+
+const Recipe = require('../models/lovedrecipe-model.js');
 const recipesArray = [
   {
       recipename: 'Creamy Skillet Chicken Cacciatore',
@@ -27,3 +39,17 @@ const recipesArray = [
   recipetags: ['Seafood']
 }
 ];
+Recipe.create(
+  recipesArray,            // 1st argument -> array of product info objects
+
+  (err, recipeResults) => {   // 2nd argument -> callback!
+    if (err) {
+      console.log('OMG! Database error.');
+      return;
+    }
+
+    recipeResults.forEach((oneRecipe) => {
+      console.log('New Recipe! ' + oneRecipe.recipename);
+    });
+  }
+);
