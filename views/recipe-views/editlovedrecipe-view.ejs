@@ -60,7 +60,7 @@
 <!-- //loop through recipetags array and display all checked ones -->
   <% recipeDetails.recipetags.forEach((tag) => { %>
     <fieldset>
-      <input  id="recipe-tags-input" type="checkbox" name="tag[]" value="<%= tag %>" checked>
+      <input  id="recipe-tags-input" type="checkbox" name="tags[]" value="<%= tag %>" checked>
       <label> <%= tag %> </label>
     </fieldset>
   <% }) %>
@@ -127,7 +127,9 @@
   <br>
   <textarea  id="recipe-comment-input"  name="recipecomment" value="<%= recipeDetails.recipecomment%>"></textarea>
   <br>
-
   <button> Save This Recipe </button>
 </form>
 </div>
+<span>
+<a id="backtorecipesbutton" href="/recipes" class="backtorecipesbutton"> Back to My Recipes </a>
+</span>

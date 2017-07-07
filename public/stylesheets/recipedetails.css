@@ -38,11 +38,12 @@ h2{
   justify-content: space-between;
 }
 .imageblock{
-  width: 30%;
-  height:55vh;
+  width: 64%;
+  height:132vh;
   border: 5px solid lightpink;
   border-radius: 10px;
-  margin: 15px;
+  margin: 8vh;
+  margin-left:15vw;
   display: inline-block;
   box-shadow: 7px 9px 33px -10px silver;
 }
@@ -54,10 +55,13 @@ h2{
 }
 .recipedesc{
   height: 30%;
-  width: 100%;
-  text-align: center;
+  /*width: 100%;*/
   color: grey;
-  margin-top: 14px;
+  margin-top: -37px;
+  text-align: left;
+    margin-left: 2vw;
+    width: 55vw;
+    word-wrap: break-word;
 }
 span {
     position: relative;
@@ -77,7 +81,7 @@ span {
   text-align: center;
   /*below is temp fix for location of add button*/
 
-  margin-top: -525px;
+  margin-top: -79vh;
   height: 40px;
   /*background: lightpink;*/
   box-sizing: border-box;
@@ -104,7 +108,7 @@ span {
   text-align: center;
   /*below is temp fix for location of add button*/
 
-  margin-top: -525px;
+  margin-top: -79vh;
   height: 40px;
   /*background: lightpink;*/
   box-sizing: border-box;
@@ -121,7 +125,7 @@ span {
 #deletebutton {
     position: absolute;
     top: 0;
-    right: 71%;
+    right: 69%;
 }
 
 #deletebutton{
@@ -131,7 +135,7 @@ span {
   text-align: center;
   /*below is temp fix for location of add button*/
 
-  margin-top: -525px;
+  margin-top: -79vh;
   height: 40px;
   /*background: lightpink;*/
   box-sizing: border-box;
@@ -144,4 +148,7 @@ span {
   font-family: Montserrat;
   outline: none;
   cursor: pointer;
+}
+.recipedesc p{
+  display: inline-block;
 }

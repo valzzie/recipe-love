@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="/stylesheets/recipedetails.css">
+
 <body>
 	<div id="wrapper">
 
@@ -10,13 +12,13 @@
       <img id = "eachImg" src="<%= recipesAndStuff.photoUrl %>">
     </div>
     <div class="recipedesc">
-      <p> <%= recipesAndStuff.recipename %> </p>
-      <p> <%= recipesAndStuff.recipesource %> </p>
-      <p> <%= recipesAndStuff.sourcelink %> </p>
-      <p> <%= recipesAndStuff.recipecategory %> </p>
-      <p> <%= recipesAndStuff.recipecomment %> </p>
-      <p> <%= recipesAndStuff.recipetags %> </p>
-      <p> <%= recipesAndStuff.photoUrl %> </p>
+      <label> Recipe Name:</label<p> <%= recipesAndStuff.recipename %> </p><br>
+        <label> Recipe Source:</label<p> <%= recipesAndStuff.recipesource %> </p><br>
+        <label> Source Link:</label<p> <%= recipesAndStuff.sourcelink %> </p><br>
+					<label> Photo URL:</label<p> <%= recipesAndStuff.photoUrl %> </p><br>
+      <label> Recipe Category:</label<p> <%= recipesAndStuff.recipecategory %> </p><br>
+      <label> Recipe Tags:</label<p> <%= recipesAndStuff.recipetags %> </p><br>
+				<label> Recipe Comment:<br></label<p> <%= recipesAndStuff.recipecomment %> </p>
     </div>
     </li>
 </ul>
@@ -28,7 +30,7 @@
 
 		<span >
 			<!-- <button> Add New Recipe </button> -->
-			<a id="backtorecipesbutton" href="/recipes" class="backtorecipesbutton"> Add New Recipe </a>
+			<a id="backtorecipesbutton" href="/recipes" class="backtorecipesbutton"> Back to My Recipes </a>
 			<a id="editbutton" href="/recipes/<%=recipesAndStuff._id%>/edit" class="editrecipebutton"> Edit My Recipe </a>
 			<a id="deletebutton" href="/recipes/<%=recipesAndStuff._id%>/delete" class="deleterecipebutton"> Delete My Recipe </a>
 

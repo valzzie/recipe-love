@@ -119,17 +119,14 @@ let theRecipe;
   //    /products/595174b1e7890a86da4f5f0b/edit
   //                       |
   //                 req.params.myId
-      console.log('1');
       RecipeModel.findById(
         req.params.myId,           // 1st argument -> the id to find in the DB
         (err, recipeFromDb) => {  // 2nd argument -> callback
             if (err) {
-              console.log('2');
               // use next() to skip to the ERROR PAGE
               next(err);
               return;
             }
-            console.log('3');
             console.log(recipeFromDb);
 
             res.locals.recipeDetails = recipeFromDb;
@@ -150,26 +147,33 @@ let theRecipe;
   //                |                             |
   //      -----------      ------------------------
   //      |                |
-  router.post('/recipes/:myId/update', (req, res, next) => {
+  router.post('/recipes/:myId/update',
+  myUploader.single('photoUrl'),//this is just to show where the above stuff is located within the code.
+   (req, res, next) => {
   //    /products/283u8eu239eu23e/update
   //                     |
   //              req.params.myId
 
+      const updatedRecipeInfo =  {                           // 2nd argument -> object of fields to update
+        recipename: req.body.recipename,
+        recipesource: req.body.recipesource,
+        sourcelink: req.body.sourcelink,
+        recipecategory: req.body.recipecategory,
+        recipecomment: req.body.recipecomment,
+        // updated this to tags to match the form
+        recipetags: req.body.tags,
+        //owner of the recipes
+        owner: req.user._id
+      };
+
+      if (typeof req.file != "undefined") {
+        updatedRecipeInfo.photoUrl = '/uploads/'+ req.file.filename;
+      }
+
       RecipeModel.findByIdAndUpdate(
         req.params.myId,            // 1st argument -> id of document to update
 
-        {                           // 2nd argument -> object of fields to update
-          recipename: req.body.recipename,
-          recipesource: req.body.recipesource,
-          sourcelink: req.body.sourcelink,
-          photoUrl: '/uploads/'+ req.file.filename,
-          recipecategory: req.body.recipecategory,
-          recipecomment: req.body.recipecomment,
-          // updated this to tags to match the form
-          recipetags: req.body.tags,
-          //owner of the recipes
-          owner: req.user._id
-        },
+        updatedRecipeInfo,
 
         (err, recipeFromDb) => {  // 3rd argument -> callback!
           if (err) {

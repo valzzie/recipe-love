@@ -1,6 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Indie Flower', cursive !important;
 }
 
 a {
@@ -16,6 +17,10 @@ a {
 }
 .navbar {
     background: lightpink;
+    font-size: large;
+  }
+  .navbar-header{
+    font-size: large;
   }
 .navbar-default {
     border-color: black;
@@ -30,7 +35,9 @@ a {
   font-size: 14px;
 }
 .navbar-brand{
-  color:black !important;
+  color: #512E5F !important;
+    font-size: 28px;
+    font-weight: bold;
 }
   /*homepage*/
   .largecenter {
