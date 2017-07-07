@@ -10,7 +10,6 @@ const myUploader = multer({
   dest: __dirname + '/../public/uploads/'
 });
 
-console.log("ERGHERKGHERUGHERHFERFHERHFERGHEUFHERUGHERKUGHEURHGERGHREG");
 router.get('/recipes', (req, res, next) => {
   RecipeModel.find((err, recipeResults) => {
     if (err) {
@@ -45,11 +44,10 @@ router.post(
   // must put input name here in parens so on form use recipePhoto or else change the name below.
   myUploader.single('photoUrl'),//this is just to show where the above stuff is located within the code.
   (req,res,next) => {
-    console.log('***********************************************************');
-    console.log('req.file(file upload from multer)');
+
 let theRecipe;
     if (typeof req.file != "undefined"){
-console.log("BEFORE THE ELSE!!!!!!!!!!!!!!!!!");
+
            theRecipe = new RecipeModel({
             recipename: req.body.recipename,
             recipesource: req.body.recipesource,
@@ -64,7 +62,7 @@ console.log("BEFORE THE ELSE!!!!!!!!!!!!!!!!!");
           });
 
     } else {
-console.log("AFTER THE ELSE!!!!!!!!!!!!!!!!!");
+
           theRecipe = new RecipeModel({
             recipename: req.body.recipename,
             recipesource: req.body.recipesource,
@@ -98,7 +96,7 @@ console.log("AFTER THE ELSE!!!!!!!!!!!!!!!!!");
           // 🚨🚨🚨
     });
   });
-  // don't need this unless I get to product details page
+  // for product details page
   router.get('/recipes/:myId', (req,res,next) => {
     RecipeModel.findById(
       // find the rooms owned by the logged in user.   we want the current owner of the room
@@ -111,7 +109,7 @@ console.log("AFTER THE ELSE!!!!!!!!!!!!!!!!!");
         }
         res.locals.recipesAndStuff= recipeFromDb;
 
-  res.render('recipe-views/mylovedrecipes-view.ejs');
+  res.render('recipe-views/lovedrecipedetails-view.ejs');
   }
   );
   });
@@ -187,4 +185,46 @@ console.log("AFTER THE ELSE!!!!!!!!!!!!!!!!!");
         }
       );
   });
+
+  // Delete from a LINK (GET)
+  //   (same code as POST version)
+  router.get('/recipes/:myId/delete', (req, res, next) => {
+    RecipeModel.findByIdAndRemove(
+      req.params.myId,           // 1st argument -> id of document to remove
+
+      (err, recipeFromDb) => {  // 2nd argument -> callback
+        if (err) {
+          // use next() to skip to the ERROR PAGE
+          next(err);
+          return;
+        }
+
+        // If removed successfully, redirect to a URL.
+        res.redirect('/recipes');
+          // you can ONLY redirect to a URL 🌏
+      }
+    );
+  });
+
+  // Delete from a FORM BUTTON (POST)
+  //   (same code as GET version)
+  router.post('/recipes/:myId/delete', (req, res, next) => {
+    RecipeModel.findByIdAndRemove(
+      req.params.myId,           // 1st argument -> id of document to remove
+
+      (err, recipeFromDb) => {  // 2nd argument -> callback
+        if (err) {
+          // use next() to skip to the ERROR PAGE
+          next(err);
+          return;
+        }
+
+        // If removed successfully, redirect to a URL.
+        res.redirect('/recipes');
+          // you can ONLY redirect to a URL 🌏
+      }
+    );
+  });
+
+
   module.exports= router;

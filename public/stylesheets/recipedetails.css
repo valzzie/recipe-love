@@ -1,0 +1,147 @@
+/**/
+body {
+  display: flex;
+ min-height: 100vh;
+ flex-direction: column;
+}
+h2{
+  font-family: 'Indie Flower', cursive;
+  font-size: 6vh;
+  text-align: center;
+}
+#eachImg{
+  max-width: 100%;
+  min-width: 100%;
+}
+.recipe-view{
+  margin-top: 65px;
+}
+#recipes-page{
+  height: 70vh;
+  ul{
+    width:100%;
+  }
+  li{
+    width:80%;
+    margin-left: 8%;
+    height: 70vh;
+  }
+}
+.row-between{
+  margin-left: 11px;
+}
+.rowspacing{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.imageblock{
+  width: 30%;
+  height:55vh;
+  border: 5px solid lightpink;
+  border-radius: 10px;
+  margin: 15px;
+  display: inline-block;
+  box-shadow: 7px 9px 33px -10px silver;
+}
+.eachrecipepic{
+  height: 70%;
+  width: 100%;
+  border-top-right-radius: 9px;
+  border-top-left-radius: 9px;
+}
+.recipedesc{
+  height: 30%;
+  width: 100%;
+  text-align: center;
+  color: grey;
+  margin-top: 14px;
+}
+span {
+    position: relative;
+    display: inline-block;
+}
+
+#backtorecipesbutton {
+    position: absolute;
+    top: 0;
+    right: 4%;
+}
+
+#backtorecipesbutton{
+
+  padding: 1rem;
+  background-color: lightpink;
+  text-align: center;
+  /*below is temp fix for location of add button*/
+
+  margin-top: -525px;
+  height: 40px;
+  /*background: lightpink;*/
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid white;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-family: Montserrat;
+  outline: none;
+  cursor: pointer;
+}
+#editbutton {
+    position: absolute;
+    top: 0;
+    left: 5%;
+}
+
+#editbutton{
+
+  padding: 1rem;
+  background-color: lightpink;
+  text-align: center;
+  /*below is temp fix for location of add button*/
+
+  margin-top: -525px;
+  height: 40px;
+  /*background: lightpink;*/
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid white;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-family: Montserrat;
+  outline: none;
+  cursor: pointer;
+}
+#deletebutton {
+    position: absolute;
+    top: 0;
+    right: 71%;
+}
+
+#deletebutton{
+
+  padding: 1rem;
+  background-color: lightpink;
+  text-align: center;
+  /*below is temp fix for location of add button*/
+
+  margin-top: -525px;
+  height: 40px;
+  /*background: lightpink;*/
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid white;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-family: Montserrat;
+  outline: none;
+  cursor: pointer;
+}

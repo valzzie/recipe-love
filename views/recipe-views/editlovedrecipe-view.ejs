@@ -2,17 +2,17 @@
 <div class="login-block">
 <h2>Edit My Recipe</h2>
 <!-- add enctype to upload photos -->
-<form method="post" action="/recipes" enctype="multipart/form-data" >
+<form method="post" action="/recipes/<%= recipeDetails._id %>/update" enctype="multipart/form-data">
   <label for="recipe-name-input"> Recipe Name: </label>
-  <input  id="recipe-name-input" type="text" name="recipename">
+  <input  id="recipe-name-input" type="text" name="recipename" value="<%= recipeDetails.recipename %>">
   <br>
 
   <label for="recipe-source-input"> Recipe Source: </label>
-  <input  id="recipe-source-input" type="text" name="recipesource">
+  <input  id="recipe-source-input" type="text" name="recipesource" value="<%= recipeDetails.recipesource%>">
   <br>
 
   <label for="source-link-input"> Recipe Source Link: </label>
-  <input  id="source-link-input" type="text" name="sourcelink">
+  <input  id="source-link-input" type="text" name="sourcelink" value="<%= recipeDetails.sourcelink%>">
   <br>
 
   <!-- change type to file so it goes to public folder -->
@@ -20,27 +20,29 @@
         Photo URL:<br>
         <span> Click Me </span>
       </label>
-    <input id="photo-url" type="file" name="photoUrl">
+    <input id="photo-url" type="file" name="photoUrl" value="<%= recipeDetails.photoUrl%>">
     <br>
 
   <label for="recipe-category-input"> Recipe Category: </label>
 
   <fieldset>
-  <input  id="recipe-category-input" type="checkbox" name="recipecategory" value="Breakfast">
+  <input  id="recipe-category-input" type="checkbox" name="recipecategory" value="<%= recipeDetails.recipecategory%>">
   <label> Breakfast </label>
 </fieldset>
 <fieldset>
-  <input  id="recipe-category-input" type="checkbox" name="recipecategory" value="Lunch">
+  <input  id="recipe-category-input" type="checkbox" name="recipecategory" value="<%= recipeDetails.recipecategory%>">
   <label> Lunch </label>
 </fieldset>
 <fieldset>
-  <input  id="recipe-category-input" type="checkbox" name="recipecategory" value="Dinner">
+  <input  id="recipe-category-input" type="checkbox" name="recipecategory" value="<%= recipeDetails.recipecategory%>">
   <label> Dinner </label>
 </fieldset>
 <!-- updated the name to  tags[] and type to checkbox -->
+
   <label for="recipe-tags-input"> Recipe Tags: </label>
   <br>
-
+  //loop through the array
+  recipeDetails.recipetags.forEach(eachTag){
   <fieldset>
     <input  id="recipe-tags-input" type="checkbox" name="tags[]" value="Healthy">
     <label> Healthy </label>
@@ -88,7 +90,7 @@
   <label for="recipe-comment-input"> Recipe Comment: </label>
   <!-- //use textarea for text area -->
   <br>
-  <textarea  id="recipe-comment-input"  name="recipecomment"></textarea>
+  <textarea  id="recipe-comment-input"  name="recipecomment" value="<%= recipeDetails.recipecomment%>"></textarea>
   <br>
 
   <button> Save This Recipe </button>
